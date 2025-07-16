@@ -17,6 +17,6 @@ def summarize_chat(messages: list[dict]) -> str:
 
     summary = chatbot2(
         user_message=conversation_text,
-        systemprompt=system_prompt
+        system_prompt=system_prompt
     )
     return summary
