@@ -1,12 +1,57 @@
-__pycache__/
-*.pyc
+# Byte-compiled / optimized / DLL files
+_pycache_/
+*.py[cod]
+*$py.class
+
+# Environment files
 .env
 *.env
+
+# SQLite / database files
 *.sqlite3
 *.db
-.DS_Store
-.idea/
-.vscode/
+
+# Log files
 *.log
 
+# macOS system file
+.DS_Store
+
+# IDE / Editor configs
+.idea/
+.vscode/
+
+# Virtual environments
 venv/
+.env/
+
+# Test cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+
+# MyPy / Type checker
+.mypy_cache/
+
+# Pylint / linting
+.pylint.d/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Misc
+*.bak
+*.swp
+*.tmp
+*.orig
