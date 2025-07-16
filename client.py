@@ -11,7 +11,7 @@ def chatbot(messages, system_prompt=None):
         messages.insert(0, {"role": "system", "content": system_prompt})
        
     completion= Client.chat.completions.create(
-          model="llama-3.3-70b-versatile",
+          model="llama3-8b-8192",
           messages=messages,
           temperature=0)
     
@@ -28,7 +28,7 @@ def chatbot2(user_message: str, system_prompt: str=None):
     messages.append({"role": "user", "content": user_message})
     
     completion= Client.chat.completions.create(
-          model="llama-3.3-70b-versatile",
+          model="llama3-8b-8192",
           messages=messages,
           temperature=0)
     return completion.choices[0].message.content
