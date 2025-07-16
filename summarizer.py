@@ -1,19 +1,22 @@
-
 from client import chatbot2
 
-def summarize_chat(messages):
+def summarize_chat(messages: list[dict]) -> str:
     """
-    Summarize the entire chatbot history/conversation.
-    :param messages: List of dicts with 'role' and 'content' keys
-    :return: Summary string
+    Summarizes the entire chat history into a clean admin report.
     """
-    # Combine all user and assistant messages into a single string
-    conversation = "\n".join([
-        f"{msg['role'].capitalize()}: {msg['content']}" for msg in messages
-    ])
-    # Use chatbot2 with a summarization prompt
-    summary_prompt = (
-        "Summarize the following chatbot conversation, focusing on the main topics, user queries, and important details. "
-        "Make the summary concise and clear.\n\n" + conversation
+
+    conversation_text = ""
+    for msg in messages:
+        conversation_text += f"{msg['role'].capitalize()}: {msg['content']}\n"
+
+    system_prompt = (
+        "You are an expert support bot. Summarize this Wi-Fi support conversation "
+        "in a short, clear report suitable for the admin. Include key complaints and any clues "
+        "about the issue."
     )
-    return chatbot2(summary_prompt)
+
+    summary = chatbot2(
+        user_message=conversation_text,
+        systemprompt=system_prompt
+    )
+    return summary

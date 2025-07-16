@@ -1,7 +1,7 @@
 from groq import Groq
 from config import load_api_key
 
-def chatbot(messages, system_prompt=None):
+def chatbot(messages, system_prompt="You are a helpful assistant specialized in Wi-Fi and network issues. Only answer questions that are directly related to Wi-Fi, internet connectivity, routers, modems, network troubleshooting, or similar topics. If a user asks about anything outside of Wi-Fi or networking, politely respond: \"I'm only able to assist with Wi-Fi and network-related questions.\""):
     """Process the user message and return the chatbot's response."""
     
     apikey= load_api_key()
@@ -13,7 +13,7 @@ def chatbot(messages, system_prompt=None):
     completion= Client.chat.completions.create(
           model="llama3-8b-8192",
           messages=messages,
-          temperature=0)
+          temperature=0.7)
     
     return completion.choices[0].message.content
 
@@ -30,5 +30,5 @@ def chatbot2(user_message: str, system_prompt: str=None):
     completion= Client.chat.completions.create(
           model="llama3-8b-8192",
           messages=messages,
-          temperature=0)
+          temperature=0.7)
     return completion.choices[0].message.content
